@@ -1,7 +1,7 @@
 /********************************************************************
 *	Date		Author		Note
 *	10-5-2019	Sam Shayan	script for disk_inventory database
-	10-11-19	Sam Shayan	Added insert statements
+	10-11-2019	Sam Shayan	Added insert statements
 *********************************************************************/
 
 use master;
