@@ -2,6 +2,7 @@
 *	Date		Author		Note
 *	10-5-2019	Sam Shayan	script for disk_inventory database
 	10-11-2019	Sam Shayan	Added insert statements
+	10-18-2019	Sam Shayan	Create queries for disk_inventoryss database.
 *********************************************************************/
 
 use master;
@@ -113,7 +114,10 @@ if USER_ID('diskss') is null
 alter role db_datareader add member diskss;
 go
 
-/****************************************/
+
+/*************************************************************************
+								Project 3
+****************************************************************************/
 
 -- Add INSERT INTO statement to add new data or records in the Genre table
 INSERT INTO [dbo].[Genre]
@@ -212,7 +216,7 @@ INSERT INTO [dbo].[Artist]
 		   ,('Seether', NULL, 2)
 		   ,('Alice in chains', NULL, 2)
 		   ,('Prince', NULL, 1)
-		   ,('Drake', NULL, 1)
+		   ,('Drake', 'Graham', 1)
 		   ,('Allan', 'Walker', 1)
 		   ,('Beetles', NULL, 2)
 		   
@@ -317,3 +321,90 @@ FROM diskHasBorrower
 WHERE borrower_return_date is NULL;
 
 
+/*************************************************************************
+								Project 4
+****************************************************************************/
+
+--3, Show the disks in your database and any associated Individual artists only. Sort by Artist Last Name, First Name & Disk Name.
+
+SELECT disk_name AS 'Disk Name', CONVERT(varchar(10), disk_release_date, 101 ) AS'Release Date'
+	   , artist_first_name AS 'Artist first Name', artist_last_name AS 'Artist last Name'
+-- Joining the tables Disk, diskHasArtist and Artist
+FROM Disk
+JOIN diskHasArtist ON Disk.disk_id = diskHasArtist.disk_id
+JOIN Artist	ON Artist.artist_id = diskHasArtist.artist_id
+WHERE artist_type_id = 1
+--Sorting the output Last Name, First Name & Disk Name
+ORDER BY artist_last_name, artist_first_name, disk_name;
+GO
+--4, Create a view called View_Individual_Artist that shows the artists’ names and not group names. Include the artist id in the view definition but do not display the id in your output.
+
+--Droping the view if it already exisits
+DROP VIEW IF EXISTS View_Individual_Artist;
+GO
+
+--creating a view 
+CREATE VIEW View_Individual_Artist as 
+--select first, last and artist id from Artist table where we have artist_type_id = 1
+	SELECT artist_id, artist_first_name, artist_last_name
+	FROM Artist
+	WHERE artist_type_id = 1;
+GO
+
+--Displaying artists first and last name from the view
+SELECT artist_first_name AS 'First Name', artist_last_name AS 'Last Name'
+FROM View_Individual_Artist;
+Go
+
+--5, Show the disks in your database and any associated Group artists only. Use the View_Individual_Artist view. Sort by Group Name & Disk Name.
+
+SELECT disk_name AS 'Disk Name',  CONVERT(varchar(10), disk_release_date, 101 ) AS'Release Date', artist_first_name AS 'Group Name'
+FROM Disk
+-- Joining tables
+JOIN diskHasArtist ON Disk.disk_id = diskHasArtist.disk_id
+JOIN Artist ON Artist.artist_id = diskHasArtist.artist_id
+-- Adding a subquery to the WHERE Clause, artist_id would be 2 (Group)
+WHERE Artist.artist_id NOT IN
+			(SELECT artist_id
+			FROM View_Individual_Artist)
+--Sorting the output by Group Name & Disk Name
+ORDER BY artist_first_name, disk_name;
+GO
+
+--6, Show which disks have been borrowed and who borrowed them. Sort by Borrower’s Last Name, then First Name, then Disk Name, then Borrowed Date, then Returned Date.
+
+SELECT borrower_first_name AS First, borrower_last_name AS Last, disk_name AS 'Disk Name'
+	, CONVERT(varchar(10), borrowed_date, 120) AS 'Borrowed Date'
+	,CONVERT(varchar(10), borrower_return_date, 120)  AS 'Returned Date'
+FROM Borrower
+-- Joining tables
+JOIN diskHasBorrower ON Borrower.borrower_id = diskHasBorrower.borrower_id
+JOIN Disk ON Disk.disk_id = diskHasBorrower.disk_id
+--Sorting the output by Borrower’s Last Name, then First Name, then Disk Name, then Borrowed Date, then Returned Date
+ORDER BY borrower_last_name, borrower_first_name, disk_name, borrowed_date, borrower_return_date
+GO
+
+--7, In disk_id order, show the number of times each disk has been borrowed
+
+SELECT Disk.disk_id AS DiskId, disk_name AS 'Disk Name', COUNT(*) AS 'Times Borrowed'
+FROM Disk
+-- Joining tables
+JOIN diskHasBorrower ON Disk.disk_id = diskHasBorrower.disk_id
+GROUP BY Disk.disk_id, disk_name
+--Sorting the output by disk_id
+ORDER BY Disk.disk_id;
+GO
+
+--8, Show the disks outstanding or on-loan and who has each disk. Sort by disk name.
+
+SELECT disk_name AS 'Disk Name', CONVERT(varchar(10), borrowed_date, 120) AS 'Borrowed Date'
+	,CONVERT(varchar(10), borrower_return_date, 120)  AS 'Returned Date', borrower_last_name AS 'Last Name'
+FROM Disk
+-- Joining tables
+JOIN diskHasBorrower ON disk.disk_id = diskHasBorrower.disk_id
+JOIN Borrower ON Borrower.borrower_id = diskHasBorrower.borrower_id
+--Getting the output where the returned Date is NULL
+WHERE borrower_return_date IS NULL
+--Sorting the output by disk_name
+ORDER BY disk_name;
+GO
