@@ -319,7 +319,7 @@ GO
 SELECT borrower_id, disk_id, Borrowed_date, borrower_return_date
 FROM diskHasBorrower
 WHERE borrower_return_date is NULL;
-
+GO
 
 /*************************************************************************
 								Project 4
@@ -337,6 +337,7 @@ WHERE artist_type_id = 1
 --Sorting the output Last Name, First Name & Disk Name
 ORDER BY artist_last_name, artist_first_name, disk_name;
 GO
+
 --4, Create a view called View_Individual_Artist that shows the artists’ names and not group names. Include the artist id in the view definition but do not display the id in your output.
 
 --Droping the view if it already exisits
@@ -401,7 +402,7 @@ SELECT disk_name AS 'Disk Name', CONVERT(varchar(10), borrowed_date, 120) AS 'Bo
 	,CONVERT(varchar(10), borrower_return_date, 120)  AS 'Returned Date', borrower_last_name AS 'Last Name'
 FROM Disk
 -- Joining tables
-JOIN diskHasBorrower ON disk.disk_id = diskHasBorrower.disk_id
+JOIN diskHasBorrower ON Disk.disk_id = diskHasBorrower.disk_id
 JOIN Borrower ON Borrower.borrower_id = diskHasBorrower.borrower_id
 --Getting the output where the returned Date is NULL
 WHERE borrower_return_date IS NULL
