@@ -3,6 +3,8 @@
 *	10-5-2019	Sam Shayan	script for disk_inventory database
 	10-11-2019	Sam Shayan	Added insert statements
 	10-18-2019	Sam Shayan	Create queries for disk_inventoryss database.
+	10-22-2019	Sam Shayan	Create Stored procedure and execute statement
+	10-22-2019	Sam Shayan	Add Stored procedure and execute statement for Project 5
 *********************************************************************/
 
 use master;
@@ -115,7 +117,7 @@ alter role db_datareader add member diskss;
 go
 
 
-/*************************************************************************
+/***************************************************************************
 								Project 3
 ****************************************************************************/
 
@@ -321,7 +323,7 @@ FROM diskHasBorrower
 WHERE borrower_return_date is NULL;
 GO
 
-/*************************************************************************
+/***************************************************************************
 								Project 4
 ****************************************************************************/
 
@@ -408,4 +410,388 @@ JOIN Borrower ON Borrower.borrower_id = diskHasBorrower.borrower_id
 WHERE borrower_return_date IS NULL
 --Sorting the output by disk_name
 ORDER BY disk_name;
+GO
+
+/****************************************************************************
+								Project 5
+****************************************************************************/
+
+/******* Stored procs & execute statement for Artist table *****************/
+
+/***************************************************************************/
+
+/********************************* 1.Insert************************************/
+--Drop stored procedur sp_InsArtist if it alredy exists
+DROP PROC IF EXISTS sp_InsArtist;
+GO
+
+--Create stored procedur sp_InsArtist to insert data to Artist table
+CREATE PROC sp_InsArtist
+-- Adding parameters
+	@artist_first_name nvarchar(100),
+	@artist_type_id int,
+	@artist_last_name nvarchar(100) = NULL
+
+AS
+-- Add TRY and CATCH block for error handling 
+BEGIN TRY
+	INSERT INTO [dbo].[Artist]
+			   ([artist_first_name]
+			   ,[artist_last_name]
+			   ,[artist_type_id])
+		 VALUES
+			   (@artist_first_name
+			   ,@artist_last_name
+			   ,@artist_type_id)
+END TRY
+BEGIN CATCH
+-- Printing error message if the data could not be inserted
+			PRINT 'An error occurd. Row was inserted. '
+			PRINT 'Error number: '+
+			--returns the number of the error
+				CONVERT(varchar(100), ERROR_NUMBER());
+			PRINT 'Error number: '+
+			--returns the complete text of the error message
+				CONVERT(varchar(100), ERROR_MESSAGE());
+END CATCH
+GO
+
+-- Execute statement to insert data using stored procedur
+EXEC  sp_InsArtist 'Joe', 1,  'Walsh'
+EXEC  sp_InsArtist 'Prince', 1 
+EXEC  sp_InsArtist '$%#', NULL --artist_type_id can not be NULL
+GO
+
+
+SELECT * 
+FROM Artist
+GO
+/********************************* 2.Update************************************/
+
+--Drop stored procedur sp_UpdArtist if it alredy exists
+DROP PROC IF EXISTS sp_UpdArtist;
+GO
+
+--Create stored procedur sp_UpdArtist to update Artist table's data
+CREATE PROC sp_UpdArtist
+-- Adding parameters
+	@artist_id int,
+	@artist_first_name nvarchar(100),
+	@artist_type_id int,
+	@artist_last_name nvarchar(100) = NULL
+	
+AS
+-- Add TRY and CATCH block for error handling 
+BEGIN TRY
+	UPDATE [dbo].[Artist]
+	   SET [artist_first_name] = @artist_first_name
+		  ,[artist_last_name] = @artist_last_name
+		  ,[artist_type_id] = @artist_type_id
+	 WHERE artist_id = @artist_id
+
+END TRY
+BEGIN CATCH
+-- Printing error message if the data could not be updated
+			PRINT 'An error occurd. Row was inserted. '
+			PRINT 'Error number: '+
+				CONVERT(varchar(100), ERROR_NUMBER());
+			PRINT 'Error number: '+
+				CONVERT(varchar(100), ERROR_MESSAGE());
+END CATCH
+GO
+
+-- Execute statement to updated data using stored procedur
+EXEC sp_UpdArtist 29, 'Burno', 1, 'Mars'
+EXEC sp_UpdArtist 21, 'Cher'	--One value is missing
+EXEC sp_UpdArtist 21, 'Burno', NULL -- artist_type_id can not be NULL
+GO
+
+/********************************* 3.DELETE************************************/
+
+--Drop stored procedur sp_DelArtist if it alredy exists
+DROP PROC IF EXISTS sp_DelArtist;
+GO
+
+--Create stored procedur sp_DelArtist to delete Artist table's data
+CREATE PROC sp_DelArtist
+-- Adding parameter
+	@artist_id int
+AS
+-- Add TRY and CATCH block for error handling
+ 
+BEGIN TRY
+	DELETE FROM [dbo].[Artist]
+	 WHERE artist_id = @artist_id
+
+END TRY
+BEGIN CATCH
+-- Printing error message if the data could not be delete
+			PRINT 'An error occurd. Row was inserted. '
+			PRINT 'Error number: '+
+				CONVERT(varchar(100), ERROR_NUMBER());
+			PRINT 'Error number: '+
+				CONVERT(varchar(100), ERROR_MESSAGE());
+END CATCH
+GO
+
+-- Execute statement to delete data using stored procedur
+EXEC sp_DelArtist 28
+EXEC sp_DelArtist NULL -- Can not have NULL value
+GO
+
+/******* Stored procs & execute statement for Borrower table *****************/
+
+/*****************************************************************************/
+
+/********************************* 4.Insert**************************************/
+
+--Drop stored procedur sp_InsBorrower if it alredy exists
+DROP PROC IF EXISTS sp_InsBorrower;
+GO
+
+--Create stored procedur sp_InsBorrower to insert data to Artist table
+CREATE PROC sp_InsBorrower
+-- Adding parameters
+	@borrower_first_name nvarchar(100),
+	@borrower_phone nvarchar(50),
+	@borrower_last_name nvarchar(100) 
+
+AS
+-- Add TRY and CATCH block for error handling 
+BEGIN TRY
+
+INSERT INTO [dbo].[Borrower]
+           ([borrower_first_name]
+           ,[borrower_last_name]
+           ,[borrower_phone])
+     VALUES
+           (@borrower_first_name
+           ,@borrower_last_name
+           ,@borrower_phone)
+
+END TRY
+BEGIN CATCH
+-- Printing error message if the data could not be inserted
+			PRINT 'An error occurd. Row was inserted. '
+			PRINT 'Error number: '+
+			--returns the number of the error
+				CONVERT(varchar(100), ERROR_NUMBER());
+			PRINT 'Error number: '+
+			--returns the complete text of the error message
+				CONVERT(varchar(100), ERROR_MESSAGE());
+END CATCH
+GO
+
+-- Execute statement to insert data using stored procedur
+EXEC  sp_InsBorrower 'Joe', 1234567899999,  'Walsh'
+EXEC  sp_InsBorrower 'Prince', 1123123, NULL -- Can not have NULL value
+EXEC  sp_InsBorrower '$%#', NULL			 -- One value is missing
+GO
+
+
+SELECT * 
+FROM Borrower
+GO
+/********************************* 5.Update************************************/
+
+--Drop stored procedur sp_UpdBorrower if it alredy exists
+DROP PROC IF EXISTS sp_UpdBorrower;
+GO
+
+--Create stored procedur sp_UpdBorrower to update Artist table's data
+CREATE PROC sp_UpdBorrower
+-- Adding parameters
+	@borrower_id int,
+	@borrower_first_name nvarchar(100),
+	@borrower_phone nvarchar(50),
+	@borrower_last_name nvarchar(100) 
+	
+AS
+-- Add TRY and CATCH block for error handling 
+BEGIN TRY
+	UPDATE [dbo].[Borrower]
+	   SET [borrower_first_name] = @borrower_first_name
+		  ,[borrower_last_name] = @borrower_last_name
+		  ,[borrower_phone] = @borrower_phone
+	 WHERE borrower_id = @borrower_id
+
+END TRY
+BEGIN CATCH
+-- Printing error message if the data could not be updated
+			PRINT 'An error occurd. Row was inserted. '
+			PRINT 'Error number: '+
+				CONVERT(varchar(100), ERROR_NUMBER());
+			PRINT 'Error number: '+
+				CONVERT(varchar(100), ERROR_MESSAGE());
+		END CATCH
+GO
+
+-- Execute statement to update data using stored procedur
+EXEC sp_UpdBorrower 22, 'mike', 1123564654, 'Basel'
+EXEC sp_UpdBorrower 21, 'tom',1456789999, NULL -- Can not have NULL value
+EXEC sp_UpdBorrower 21, 'jerry', NULL		   -- One value is missing
+GO
+
+/********************************* 6.DELETE************************************/
+
+--Drop stored procedur sp_DelBorrower if it alredy exists
+DROP PROC IF EXISTS sp_DelBorrower;
+GO
+
+--Create stored procedur sp_DelBorrower to delete Artist table's data
+CREATE PROC sp_DelBorrower
+	@borrower_id int
+AS
+-- Add TRY and CATCH block for error handling
+ 
+BEGIN TRY
+	DELETE FROM [dbo].[Borrower]
+	 WHERE borrower_id = @borrower_id
+
+END TRY
+BEGIN CATCH
+-- Printing error message if the data could not be delete
+			PRINT 'An error occurd. Row was inserted. '
+			PRINT 'Error number: '+
+				CONVERT(varchar(100), ERROR_NUMBER());
+			PRINT 'Error number: '+
+				CONVERT(varchar(100), ERROR_MESSAGE());
+END CATCH
+GO
+
+-- Execute statement to delete data using stored procedur
+EXEC sp_DelBorrower 22
+EXEC sp_DelBorrower NULL  -- Can not have NULL value
+GO
+
+/******* Stored procs & execute statement for Disk table *****************/
+
+/*************************************************************************/
+
+/********************************* 7.Insert************************************/
+--Drop stored procedur sp_InsDisk if it alredy exists
+DROP PROC IF EXISTS sp_InsDisk;
+GO
+
+--Create stored procedur sp_InsDisk to insert data to Artist table
+CREATE PROC sp_InsDisk
+-- Adding parameters
+			    @disk_name nvarchar(100)
+			   ,@disk_release_date date
+			   ,@genre_id int
+			   ,@status_id int
+			   ,@disk_type_id int
+
+AS
+-- Add TRY and CATCH block for error handling 
+BEGIN TRY
+	INSERT INTO [dbo].[Disk]
+			   ([disk_name]
+			   ,[disk_release_date]
+			   ,[genre_id]
+			   ,[status_id]
+			   ,[disk_type_id])
+		 VALUES
+			    (@disk_name
+			   ,@disk_release_date
+			   ,@genre_id
+			   ,@status_id
+			   ,@disk_type_id)
+
+END TRY
+BEGIN CATCH
+-- Printing error message if the data could not be inserted
+			PRINT 'An error occurd. Row was inserted. '
+			PRINT 'Error number: '+
+			--returns the number of the error
+				CONVERT(varchar(100), ERROR_NUMBER());
+			PRINT 'Error number: '+
+			--returns the complete text of the error message
+				CONVERT(varchar(100), ERROR_MESSAGE());
+END CATCH
+GO
+
+-- Execute statement to insert data using stored procedur
+EXEC  sp_InsDisk 'New disk', '11-11-2009', 4,2,3
+EXEC  sp_InsDisk 'Prince', NULL, 1,1,1 -- Can not have NULL value
+EXEC  sp_InsDisk 'Mikael', NULL		   -- One value is missing
+GO
+
+SELECT * 
+FROM Disk
+GO
+/********************************* 8.Update************************************/
+
+--Drop stored procedur sp_UpdDisk if it alredy exists
+DROP PROC IF EXISTS sp_UpdDisk;
+GO
+
+--Create stored procedur sp_UpdDisk to update Artist table's data
+CREATE PROC sp_UpdDisk
+		 @disk_id int
+		  ,@disk_name nvarchar(100)
+		 ,@disk_release_date date
+		 ,@genre_id int
+		 ,@status_id int
+		 ,@disk_type_id int
+	
+AS
+-- Add TRY and CATCH block for error handling 
+BEGIN TRY
+
+	UPDATE [dbo].[Disk]
+	   SET [disk_name] = @disk_name
+		  ,[disk_release_date] = @disk_release_date 
+		  ,[genre_id] = @genre_id
+		  ,[status_id] = @status_id
+		  ,[disk_type_id] = @disk_type_id
+	WHERE disk_id = @disk_id
+
+END TRY
+BEGIN CATCH
+-- Printing error message if the data could not be updated
+			PRINT 'An error occurd. Row was inserted. '
+			PRINT 'Error number: '+
+				CONVERT(varchar(100), ERROR_NUMBER());
+			PRINT 'Error number: '+
+				CONVERT(varchar(100), ERROR_MESSAGE());
+END CATCH
+GO
+
+-- Execute statement to update data using stored procedur
+EXEC sp_UpdDisk 21, 'New disk3', '11-11-2010', 1,1,1
+EXEC sp_UpdDisk 21, 'tom',NULL, 1,1,1			-- Can not have NULL value
+EXEC sp_UpdDisk 21, 'jerry', '11-11-2010',1 ,1  -- One value is missing
+GO
+
+/********************************* 9.DELETE************************************/
+
+--Drop stored procedur sp_DelDisk if it alredy exists
+DROP PROC IF EXISTS sp_DelDisk;
+GO
+
+--Create stored procedur sp_DelDisk to delete Artist table's data
+CREATE PROC sp_DelDisk
+	@disk_id int
+AS
+-- Add TRY and CATCH block for error handling
+ 
+BEGIN TRY
+	DELETE FROM [dbo].[Disk]
+	 WHERE disk_id = @disk_id
+
+END TRY
+BEGIN CATCH
+-- Printing error message if the data could not be delete
+			PRINT 'An error occurd. Row was inserted. '
+			PRINT 'Error number: '+
+				CONVERT(varchar(100), ERROR_NUMBER());
+			PRINT 'Error number: '+
+				CONVERT(varchar(100), ERROR_MESSAGE());
+		END CATCH
+GO
+
+-- Execute statement to delete data using stored procedur
+EXEC sp_DelDisk 22
+EXEC sp_DelDisk NULL		-- can not have NULL value
 GO
