@@ -16,7 +16,8 @@
         <div class="col-md-4">
             <h2>Artists</h2>
             <p>
-                Add artists information here
+                Add artists information here 
+
             </p>
             <p>
                 <a class="btn btn-default" href="Artist">Click here &raquo;</a>
