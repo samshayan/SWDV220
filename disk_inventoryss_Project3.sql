@@ -502,7 +502,7 @@ GO
 
 -- Execute statement to updated data using stored procedur
 EXEC sp_UpdArtist 29, 'Burno', 1, 'Mars'
-EXEC sp_UpdArtist 21, 'Cher'	--One value is missing
+EXEC sp_UpdArtist 21, 'Cher', 1		--One value is missing
 EXEC sp_UpdArtist 21, 'Burno', NULL -- artist_type_id can not be NULL
 GO
 
