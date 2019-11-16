@@ -14,17 +14,5 @@ namespace WebApplication2
       
         }
 
-        protected void Button1_Click(object sender, EventArgs e)
-        {
-            if (IsValid)
-            {
-                // Adding a message for lable
-                Label1.Text = "Borrower " + TextBox1.Text +" " +  TextBox2.Text + " added to Database.";
-                // Emptying input after clicking add to database button
-                TextBox1.Text = "";
-                TextBox2.Text = "";
-                TextBox3.Text = "";
-            }
-        }
     }
 }

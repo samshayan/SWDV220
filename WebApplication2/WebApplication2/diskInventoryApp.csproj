@@ -177,7 +177,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Default.aspx" />
-    <Content Include="Disk.aspx" />
+    <Content Include="disk.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -366,12 +366,12 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Disk.aspx.cs">
-      <DependentUpon>Disk.aspx</DependentUpon>
+    <Compile Include="disk.aspx.cs">
+      <DependentUpon>disk.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Disk.aspx.designer.cs">
-      <DependentUpon>Disk.aspx</DependentUpon>
+    <Compile Include="disk.aspx.designer.cs">
+      <DependentUpon>disk.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

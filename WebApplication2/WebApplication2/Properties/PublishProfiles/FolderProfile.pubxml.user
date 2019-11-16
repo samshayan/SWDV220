@@ -6,7 +6,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
-    <_PublishTargetUrl>http://localhost/project2</_PublishTargetUrl>
+    <_PublishTargetUrl>http://localhost/project3</_PublishTargetUrl>
   </PropertyGroup>
   <ItemGroup>
     <File Include="Account/AddPhoneNumber.aspx">
@@ -58,7 +58,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/07/2019 10:37:21</publishTime>
     </File>
     <File Include="Artist.aspx">
-      <publishTime>11/08/2019 11:28:01</publishTime>
+      <publishTime>11/16/2019 10:41:21</publishTime>
     </File>
     <File Include="bin/Antlr3.Runtime.dll">
       <publishTime>09/10/2013 16:29:20</publishTime>
@@ -283,16 +283,16 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/22/2013 09:21:56</publishTime>
     </File>
     <File Include="bin/WebApplication2.dll">
-      <publishTime>11/08/2019 11:29:38</publishTime>
+      <publishTime>11/16/2019 10:49:07</publishTime>
     </File>
     <File Include="bin/WebApplication2.pdb">
-      <publishTime>11/08/2019 11:29:38</publishTime>
+      <publishTime>11/16/2019 10:49:07</publishTime>
     </File>
     <File Include="bin/WebGrease.dll">
       <publishTime>01/23/2014 12:57:34</publishTime>
     </File>
     <File Include="Borrower.aspx">
-      <publishTime>11/08/2019 11:28:43</publishTime>
+      <publishTime>11/16/2019 10:41:22</publishTime>
     </File>
     <File Include="Bundle.config">
       <publishTime>11/07/2019 10:37:14</publishTime>
@@ -331,7 +331,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/08/2019 11:24:37</publishTime>
     </File>
     <File Include="Disk.aspx">
-      <publishTime>11/08/2019 11:29:00</publishTime>
+      <publishTime>11/16/2019 10:41:21</publishTime>
     </File>
     <File Include="favicon.ico">
       <publishTime>11/07/2019 10:37:14</publishTime>
@@ -451,7 +451,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/07/2019 10:37:19</publishTime>
     </File>
     <File Include="Site.Master">
-      <publishTime>11/08/2019 11:25:26</publishTime>
+      <publishTime>11/15/2019 09:18:58</publishTime>
     </File>
     <File Include="Site.Mobile.Master">
       <publishTime>11/07/2019 10:37:20</publishTime>
@@ -460,7 +460,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/07/2019 10:37:20</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>11/08/2019 10:56:27</publishTime>
+      <publishTime>11/16/2019 10:49:07</publishTime>
     </File>
   </ItemGroup>
 </Project>

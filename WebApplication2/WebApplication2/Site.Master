@@ -58,7 +58,7 @@
                     <ul class="nav navbar-nav">
                         <li><a runat="server" href="~/">Home</a></li>
                         <li><a runat="server" href="~/Artist">Artists</a></li>
-                        <li><a runat="server" href="~/Disk">Disks</a></li>
+                        <li><a runat="server" href="~/disk">Disks</a></li>
                         <li><a runat="server" href="~/Borrower">Borrowers</a></li>
                     </ul>
                     <asp:LoginView runat="server" ViewStateMode="Disabled">
