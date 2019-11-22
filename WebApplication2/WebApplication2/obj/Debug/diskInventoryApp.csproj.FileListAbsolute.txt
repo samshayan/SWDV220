@@ -95,8 +95,8 @@ C:\Users\sshayan\Desktop\SQL SERVER\sql github pro3\WebApplication2\WebApplicati
 C:\Users\sshayan\Desktop\SQL SERVER\sql github pro3\WebApplication2\WebApplication2\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 C:\Users\sshayan\Desktop\SQL SERVER\sql github pro3\WebApplication2\WebApplication2\bin\Microsoft.Owin.Security.OAuth.xml
 C:\Users\sshayan\Desktop\SQL SERVER\sql github pro3\WebApplication2\WebApplication2\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Users\sshayan\Desktop\SQL SERVER\sql github pro3\WebApplication2\WebApplication2\obj\Debug\diskInventoryApp.csprojAssemblyReference.cache
 C:\Users\sshayan\Desktop\SQL SERVER\sql github pro3\WebApplication2\WebApplication2\obj\Debug\diskInventoryApp.csproj.CoreCompileInputs.cache
 C:\Users\sshayan\Desktop\SQL SERVER\sql github pro3\WebApplication2\WebApplication2\obj\Debug\diskInventoryApp.csproj.CopyComplete
 C:\Users\sshayan\Desktop\SQL SERVER\sql github pro3\WebApplication2\WebApplication2\obj\Debug\WebApplication2.dll
 C:\Users\sshayan\Desktop\SQL SERVER\sql github pro3\WebApplication2\WebApplication2\obj\Debug\WebApplication2.pdb
+C:\Users\sshayan\Desktop\SQL SERVER\sql github pro3\WebApplication2\WebApplication2\obj\Debug\diskInventoryApp.csprojAssemblyReference.cache

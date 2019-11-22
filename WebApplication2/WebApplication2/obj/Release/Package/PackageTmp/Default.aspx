@@ -1,6 +1,8 @@
 ﻿<%-- 
-    Date    Author      Note
-    11-8-19 Sam Shayan  Modifying content of home page
+    Date        Author      Note
+    11-8-19     Sam Shayan  Modifying content of home page
+    11-22-19    Sam Shayan  Editing link paths for artist, disk, and borrower
+
     
     --%>
 <%@ Page Title="Home Page" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="WebApplication2._Default" %>
@@ -13,7 +15,7 @@
         <p class="lead whiteText">Disk inventory for Artists, Disks and Borrowers.</p>
         <p>
             <%-- Adding github for easier access --%>
-            <a class="btn btn-primary" href="https://github.com/samshayan/SWDV220" target="_blank">Github &raquo;</a>
+            <a class="btn btn-primary" href="https://github.com/samshayan/SWDV220" target="_blank">Check my Github &raquo;</a>
         </p>
     </div>
 
@@ -22,28 +24,28 @@
         <div class="col-md-4">
             <h2>Artists</h2>
             <p>
-                Add artists information here 
+                Add and modify artists information here 
             </p>
             <p>
-                <a class="btn btn-default" href="Artist">Click here &raquo;</a>
+                <a class="btn btn-default" href="Maintenance/artist">Click here &raquo;</a>
             </p>
         </div>
         <div class="col-md-4">
             <h2>Disks</h2>
             <p>
-                Add disks information here
+                Add and modify disks information here
             </p>
             <p>
-                <a class="btn btn-default" href="Disk">Click here &raquo;</a>
+                <a class="btn btn-default" href="Maintenance/disk">Click here &raquo;</a>
             </p>
         </div>
         <div class="col-md-4">
             <h2>Borrower</h2>
             <p>
-                Add borrowers information here
+                Add and modify borrowers information here
             </p>
             <p>
-                <a class="btn btn-default" href="Borrower">Click here &raquo;</a>
+                <a class="btn btn-default" href="Maintenance/borrower">Click here &raquo;</a>
             </p>
         </div>
     </div>
