@@ -1,7 +1,7 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="OpenAuthProviders.ascx.cs" Inherits="WebApplication2.Account.OpenAuthProviders" %>
 
 <div id="socialLoginList">
-    <h4>Use another service to log in.</h4>
+    <h4>Keep track of your favourite music collection.</h4>
     <hr />
     <asp:ListView runat="server" ID="providerDetails" ItemType="System.String"
         SelectMethod="GetProviderNames" ViewStateMode="Disabled">
@@ -15,7 +15,8 @@
         </ItemTemplate>
         <EmptyDataTemplate>
             <div>
-                <p>There are no external authentication services configured. See <a href="https://go.microsoft.com/fwlink/?LinkId=252803">this article</a> for details on setting up this ASP.NET application to support logging in via external services.</p>
+                <p>Personal database for music lovers and collectors.</p>
+                <p>Music has the power to bridge cultures and fill the gap between generations. Classical music can soothe the soul and calm a troubled mind. Jazz music can tickle the ears and get a person’s foot tapping to the beat. And many other musical genres and styles have their own unique sounds that speak more eloquently than words can describe.</p>
             </div>
         </EmptyDataTemplate>
     </asp:ListView>
