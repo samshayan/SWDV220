@@ -56,9 +56,3 @@ input[type="select"] {
     color: azure;
 }
 
-/* logo size on under construstion pages*/
-.underCons {
-    width: 200px;
-    height: 200px;
-    margin: auto;
-}

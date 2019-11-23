@@ -24,6 +24,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Account/Login.aspx">
       <publishTime>11/07/2019 10:37:21</publishTime>
     </File>
+    <File Include="Account/Logout.aspx">
+      <publishTime>11/23/2019 10:57:42</publishTime>
+    </File>
     <File Include="Account/Manage.aspx">
       <publishTime>11/07/2019 10:37:21</publishTime>
     </File>
@@ -283,10 +286,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/22/2013 09:21:56</publishTime>
     </File>
     <File Include="bin/WebApplication2.dll">
-      <publishTime>11/22/2019 17:35:41</publishTime>
+      <publishTime>11/23/2019 10:57:50</publishTime>
     </File>
     <File Include="bin/WebApplication2.pdb">
-      <publishTime>11/22/2019 17:35:41</publishTime>
+      <publishTime>11/23/2019 10:57:50</publishTime>
     </File>
     <File Include="bin/WebGrease.dll">
       <publishTime>01/23/2014 12:57:34</publishTime>
@@ -325,7 +328,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/07/2019 10:37:17</publishTime>
     </File>
     <File Include="Content/Site.css">
-      <publishTime>11/22/2019 15:58:09</publishTime>
+      <publishTime>11/23/2019 10:28:06</publishTime>
+    </File>
+    <File Include="Content/style.css">
+      <publishTime>11/23/2019 10:51:39</publishTime>
     </File>
     <File Include="Default.aspx">
       <publishTime>11/22/2019 16:16:41</publishTime>
@@ -466,7 +472,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/07/2019 10:37:19</publishTime>
     </File>
     <File Include="Site.Master">
-      <publishTime>11/22/2019 16:13:47</publishTime>
+      <publishTime>11/23/2019 10:52:28</publishTime>
     </File>
     <File Include="Site.Mobile.Master">
       <publishTime>11/07/2019 10:37:20</publishTime>

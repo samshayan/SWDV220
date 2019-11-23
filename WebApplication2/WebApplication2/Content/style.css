@@ -1,0 +1,23 @@
+﻿/* logo size on under goodbye pages*/
+.goodbyeLogo {
+    width: 250px;
+    height: 250px;
+    margin: auto;
+}
+
+@keyframes spin-horizontal {
+    0% {
+        transform: rotateY(0deg);
+    }
+
+    100% {
+        transform: rotateY(360deg);
+    }
+}
+
+.image-rotate-horizontal1 {
+    -moz-animation: spin-horizontal 7s infinite linear;
+    -o-animation: spin-horizontal 7s infinite linear;
+    -webkit-animation: spin-horizontal 7s infinite linear;
+    animation: spin-horizontal 7s infinite linear;
+}
