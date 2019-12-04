@@ -171,6 +171,7 @@
     <Content Include="Account\VerifyPhoneNumber.aspx" />
     <Content Include="Content\style.css" />
     <Content Include="Maintenance\artist.aspx" />
+    <Content Include="Maintenance\availableDisk.aspx" />
     <Content Include="Maintenance\borrower.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
@@ -179,6 +180,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Default.aspx" />
+    <Content Include="Maintenance\checkout.aspx" />
     <Content Include="Maintenance\disk.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -357,6 +359,13 @@
     <Compile Include="Maintenance\artist.aspx.designer.cs">
       <DependentUpon>artist.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Maintenance\availableDisk.aspx.cs">
+      <DependentUpon>availableDisk.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Maintenance\availableDisk.aspx.designer.cs">
+      <DependentUpon>availableDisk.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Maintenance\borrower.aspx.cs">
       <DependentUpon>borrower.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -377,6 +386,13 @@
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Maintenance\checkout.aspx.cs">
+      <DependentUpon>checkout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Maintenance\checkout.aspx.designer.cs">
+      <DependentUpon>checkout.aspx</DependentUpon>
     </Compile>
     <Compile Include="Maintenance\disk.aspx.cs">
       <DependentUpon>disk.aspx</DependentUpon>

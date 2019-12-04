@@ -6,7 +6,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
-    <_PublishTargetUrl>http://localhost/project4</_PublishTargetUrl>
+    <_PublishTargetUrl>http://localhost/project5</_PublishTargetUrl>
   </PropertyGroup>
   <ItemGroup>
     <File Include="Account/AddPhoneNumber.aspx">
@@ -286,10 +286,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/22/2013 09:21:56</publishTime>
     </File>
     <File Include="bin/WebApplication2.dll">
-      <publishTime>11/23/2019 10:57:50</publishTime>
+      <publishTime>12/04/2019 11:10:54</publishTime>
     </File>
     <File Include="bin/WebApplication2.pdb">
-      <publishTime>11/23/2019 10:57:50</publishTime>
+      <publishTime>12/04/2019 11:10:54</publishTime>
     </File>
     <File Include="bin/WebGrease.dll">
       <publishTime>01/23/2014 12:57:34</publishTime>
@@ -328,10 +328,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/07/2019 10:37:17</publishTime>
     </File>
     <File Include="Content/Site.css">
-      <publishTime>11/23/2019 10:28:06</publishTime>
+      <publishTime>12/04/2019 08:44:11</publishTime>
     </File>
     <File Include="Content/style.css">
-      <publishTime>11/23/2019 10:51:39</publishTime>
+      <publishTime>12/04/2019 09:02:17</publishTime>
     </File>
     <File Include="Default.aspx">
       <publishTime>11/22/2019 16:16:41</publishTime>
@@ -372,8 +372,14 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Maintenance/artist.aspx">
       <publishTime>11/22/2019 10:56:05</publishTime>
     </File>
+    <File Include="Maintenance/availableDisk.aspx">
+      <publishTime>12/04/2019 08:34:24</publishTime>
+    </File>
     <File Include="Maintenance/borrower.aspx">
       <publishTime>11/22/2019 10:55:55</publishTime>
+    </File>
+    <File Include="Maintenance/checkout.aspx">
+      <publishTime>12/04/2019 11:10:30</publishTime>
     </File>
     <File Include="Maintenance/disk.aspx">
       <publishTime>11/22/2019 10:55:48</publishTime>
@@ -472,7 +478,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/07/2019 10:37:19</publishTime>
     </File>
     <File Include="Site.Master">
-      <publishTime>11/23/2019 10:52:28</publishTime>
+      <publishTime>12/04/2019 08:50:01</publishTime>
     </File>
     <File Include="Site.Mobile.Master">
       <publishTime>11/07/2019 10:37:20</publishTime>

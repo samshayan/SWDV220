@@ -21,3 +21,14 @@
     -webkit-animation: spin-horizontal 7s infinite linear;
     animation: spin-horizontal 7s infinite linear;
 }
+
+footer {
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+    color: black;
+}
+
+html, body {
+    overflow-x: hidden;
+}
