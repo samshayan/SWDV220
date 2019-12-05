@@ -39,8 +39,6 @@
         </asp:DropDownList>
         <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="*Please choose a borrower" ControlToValidate="DropDownList2"
             Display="Dynamic" CssClass="text-danger"></asp:RequiredFieldValidator>
-   
-
         <%-- Data source for disk borrower --%>
 
         <asp:SqlDataSource ID="SqlDataSource2" runat="server"
@@ -60,7 +58,7 @@
         <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Please choose a date" ControlToValidate="TextBox1"
             CssClass="text-danger" Display="Dynamic"></asp:RequiredFieldValidator>
 
-             <asp:CompareValidator ID="CompareTodayValidator" Operator="LessThanEqual" Type="Date" ControlToValidate="TextBox1" ErrorMessage="Please choose valid date" Display="Dynamic" CssClass="text-danger"
+             <asp:CompareValidator ID="CompareTodayValidator" Operator="GreaterThanEqual" Type="Date" ControlToValidate="TextBox1" ErrorMessage="Please choose valid date" Display="Dynamic" CssClass="text-danger"
             runat="server" />
 
     </p>

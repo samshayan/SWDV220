@@ -65,7 +65,7 @@
                         <li><a runat="server" href="~/Maintenance/disk">Disks</a></li>
                         <li><a runat="server" href="~/Maintenance/borrower">Borrowers</a></li>
                         <li><a runat="server" href="~/Maintenance/availableDisk">Available Inventory</a></li>
-                        <li><a runat="server" href="~/Maintenance/checkout">Check Out </a></li>
+                        <li><a runat="server" href="~/Maintenance/checkout">Checkout </a></li>
 
                     </ul>
                     <asp:LoginView runat="server" ViewStateMode="Disabled">
